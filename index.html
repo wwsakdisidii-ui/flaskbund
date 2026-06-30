@@ -1,14 +1,28 @@
----
-layout: default
-title: FlaskBund
----
-<h2>File Listing</h2>
-<ul>
-  {% for file in site.static_files %}
-    {% if file.path contains page.dir %}
-      <li>
-        <a href="{{ site.baseurl }}{{ file.path }}">{{ file.name }}</a>
-      </li>
-    {% endif %}
-  {% endfor %}
-</ul>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Index of /</title>
+    <style>
+        body { font-family: monospace; background: #fff; color: #000; padding: 20px; }
+        h1 { font-size: 1.5em; margin-bottom: 5px; }
+        th, td { text-align: left; padding-right: 20px; }
+        th { border-bottom: 1px solid #000; padding-bottom: 5px; }
+        a { color: #0000ee; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .footer { margin-top: 10px; border-top: 1px solid #000; padding-top: 5px; font-size: 0.9em; }
+    </style>
+</head>
+<body>
+    <h1>Index of /</h1>
+    <table>
+        <thead>
+            <tr><th>Name</th><th>Last Modified</th><th>Size</th></tr>
+        </thead>
+        <tbody>
+            <tr><td><a href="../">Parent Directory</a></td><td>-</td><td>-</td></tr>
+            <tr><td><a href="file.txt">file.txt</a></td><td>2026-06-30</td><td>1.2 KB</td></tr>
+        </tbody>
+    </table>
+    <div class="footer">GitHub Pages Directory Index Server</div>
+</body>
+</html>
