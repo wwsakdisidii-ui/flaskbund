@@ -1,0 +1,9 @@
+- name: Generate Indexed Theme
+      run: |
+        echo "<!DOCTYPE html><html><head><style>body{font-family:sans-serif; background:#121212; color:#fff;} a{color:#4dadff;}</style></head><body><h2>Index Matrix</h2><ul>" > index.html
+        for file in *; do
+          if [ "$file" != "index.html" ]; then
+            echo "<li><a href='$file'>$file</a></li>" >> index.html
+          fi
+        done
+        echo "</ul></body></html>" >> index.html
