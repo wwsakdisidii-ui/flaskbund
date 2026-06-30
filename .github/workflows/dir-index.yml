@@ -1,0 +1,26 @@
+name: Generate Directory Index
+
+on:
+  push:
+    branches: [ "main", "master" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Generate Index
+      run: |
+        echo "<!DOCTYPE html><html><body><h2>Files:</h2><ul>" > index.html
+        for file in *; do
+          if [ "$file" != "index.html" ]; then
+            echo "<li><a href='$file'>$file</a></li>" >> index.html
+          fi
+        done
+        echo "</ul></body></html>" >> index.html
+
+    - name: Commit and Push Index
+      uses: stefanzweifel/git-auto-commit-action@v5
+      with:
+        commit_message: "Automated directory index update"
